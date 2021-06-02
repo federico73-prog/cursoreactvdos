@@ -1,6 +1,6 @@
 //import logo from './logo.svg';
 import './NavBar.css';
-import logo from '../../assets/img/logo.JPG'
+import logo from '../../assets/img/logo.JPG';
 
 function NavBar() {
   return (
