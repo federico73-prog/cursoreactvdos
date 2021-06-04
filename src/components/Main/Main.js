@@ -8,8 +8,8 @@ function Main() {
           <div class="container">
                <NavBar />
                <hr />
-              <ItemListContainer propiedad = "ACA IRA NUESTRO CATALOGO"  />
-              <ItemListContainer propiedad = "ACA IRA NUESTRO CATALOGO"  />
+              <ItemListContainer greeting = "ACA IRA NUESTRO CATALOGO"  />
+              <ItemListContainer greeting = "ACA IRA NUESTRO CATALOGO"  />
                
           </div>
     ); 
