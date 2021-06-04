@@ -1,11 +1,12 @@
 //import logo from './logo.svg';
 import './NavBar.css';
+import CartWidget from './CartWidget';
 import logo from '../../assets/img/logo.JPG';
 
-function NavBar() {
+const NavBar = () =>  {
   return (
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light ">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#"><img class = "logo__nav" alt="logo" src={logo}></img></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -24,14 +25,18 @@ function NavBar() {
                         Productos
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Papel</a>
+                            <a class="dropdown-item" href="#">Carton</a>
+                            <a class="dropdown-item" href="#">Plastico</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Otros</a>
                         </div>
                     </li>
                 </ul>
             </div>
+
+            <CartWidget />
+            
         </nav>
     </div>  
     ); 

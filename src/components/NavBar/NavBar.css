@@ -1,15 +1,16 @@
+
 .logo__nav{
     width: 25%;
     height: 15%;
 }
 
 .ul__nav{
-    margin-left: 20%;
+    margin-left: -65%;
 }
 
 .li__nav{
     
-    padding: 11%;
+    padding: 9%;
     font-family: 'Odibee Sans', cursive;
-    font-size: 30px;
+    font-size: 155%;
 }

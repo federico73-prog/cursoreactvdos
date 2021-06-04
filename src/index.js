@@ -4,9 +4,6 @@ import './index.css';
 import Main from './components/Main/Main';
 import reportWebVitals from './reportWebVitals';
 
-import "bootstrap/dist/css/bootstrap.css";
-import {fontAwesomeIcon} from '@fortawesome/react-fontawesome';
-
 
 
 ReactDOM.render(
