@@ -1,0 +1,33 @@
+.container__counter{
+    border-style: solid;
+    width: 20%;
+    padding: 5%;
+    font-family: 'Odibee Sans', cursive;
+    
+}
+
+.containter__counter__secondary{
+    padding: 4%;
+    padding-bottom:40%;
+}
+
+.btn__counter{
+   padding: 5%;
+}
+
+.icn_counter{
+    font-size: 120%;
+}
+
+.span__counter{
+    padding: 5%;
+    font-size: 120%;
+ }
+
+.btn__agregar{
+    width: 100%;
+    font-size: 120%;
+    letter-spacing: 0.1em;
+    background-color: brown;
+    
+}

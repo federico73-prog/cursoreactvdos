@@ -5,11 +5,10 @@ import ItemListContainer from '../ItemListContainer/ItemListContainer';
 
 function Main() {
   return (
-          <div class="container">
+          <div className="container">
                <NavBar />
                <hr />
-              <ItemListContainer greeting = "ACA IRA NUESTRO CATALOGO"  />
-              <ItemListContainer greeting = "ACA IRA NUESTRO CATALOGO"  />
+              <ItemListContainer />
                
           </div>
     ); 
