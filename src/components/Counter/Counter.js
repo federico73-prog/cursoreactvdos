@@ -23,7 +23,7 @@ const Counter = ({initial, stock, onAdd}) => {
     return (
         <div className="container mt-3  container__counter">
             <div className=" container d-flex align-items-center justify-content-center  mb-1 containter__counter__secondary ">
-                <i className="btn__counter"><ion-icon name="remove-circle-outline icn_counter"  onClick= {removeItems}></ion-icon></i>
+                <i className="btn__counter"><ion-icon name="remove-circle-outline"  onClick= {removeItems}></ion-icon></i>
                 <span className="span__counter">{items}</span>
                 <i className="btn__counter"><ion-icon name="add-circle-outline" onClick= {addItems}></ion-icon></i>
             </div>
