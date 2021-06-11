@@ -11,12 +11,12 @@ const ItemList = () => {
         {name:'Producto1', value: 1, stock:20, img : {img1}},
         {name:'Producto2', value: 2, stock:10, img: {img2}},
         {name:'Producto3', value: 3, stock:5, img: {img3}},
-        {name:'Producto3', value: 3, stock:5, img: {img3}},
-        {name:'Producto3', value: 3, stock:5, img: {img3}},
-        {name:'Producto3', value: 3, stock:5, img: {img3}},
+        {name:'Producto4', value: 3, stock:5, img: {img3}},
+        {name:'Producto5', value: 3, stock:5, img: {img3}},
+        {name:'Producto6', value: 3, stock:5, img: {img3}},
     ];
 
-    const task = new Promise((resolve,reject) => {
+    const promise = new Promise((resolve,reject) => {
         
         setTimeout(() => {
             resolve(productList);
@@ -24,7 +24,7 @@ const ItemList = () => {
     });
    
         return(
-            //task.then(data => {
+            //promise.then(data => {
             <div className="row">
                 {productList.map((element,i) =>{//aca en vez de productList, iria data
                     return (
