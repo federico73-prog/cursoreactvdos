@@ -3,3 +3,14 @@
     box-shadow: 0 2px 2px rgba(0,0,0,0.2);
     font-family: 'Odibee Sans', cursive;
 }  
+
+.img__item{
+    width:50%;
+    height:200px;
+    margin-left:25%;
+    padding-top: 2%;
+}
+
+.div__item{
+    padding-top:12%;
+}
