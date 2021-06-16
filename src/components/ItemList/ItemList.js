@@ -14,7 +14,8 @@ import './ItemList.css';
 const ItemList = () => {
     const [localItems, setLocalItems] = useState([]);
 
-    useEffect( () => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect( async () => {
         const productList = [
             {name:'Producto1', value: 1, stock:20, img : img1},
             {name:'Producto2', value: 2, stock:10, img: img2},
@@ -40,7 +41,7 @@ const ItemList = () => {
             <div className="row">
                 {localItems.map((element,i) =>{
                     return (
-                        <div className="col-4 row__itemlist">
+                        <div className="col-4 row__itemlist" key={i}>
                             <Item id={i} name={element.name} value = {element.value} stock={element.stock} img ={element.img} />
                         </div>
                     );

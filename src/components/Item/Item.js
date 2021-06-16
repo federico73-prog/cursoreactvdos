@@ -2,14 +2,7 @@ import React from 'react';
 import Counter from '../Counter/Counter';
 import './Item.css';
 
-const onAdd = (amount) =>{   
-    if(amount > 0){
-        alert("Se agregaron " + amount + "  productos al carrito");
-    }
-    else{
-        alert("Ingrese cantidad");
-    }   
-} 
+
 
 const Item = ({id,name,value,stock,img}) => {
      
@@ -24,7 +17,7 @@ const Item = ({id,name,value,stock,img}) => {
                         <p>Stock: {stock}</p>
                         <p>Codigo: {id}</p>
                     </div>
-                    <Counter initial={0} stock = {stock} onAdd={onAdd} />
+                    <Counter initial={0} stock = {stock}  />
            
         </div>
         );

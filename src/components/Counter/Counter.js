@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Counter.css';
 
-const Counter = ({initial, stock, onAdd}) => {
+const Counter = ({initial, stock}) => {
    
 
     const [items, setItems] = useState(initial);
@@ -19,6 +19,15 @@ const Counter = ({initial, stock, onAdd}) => {
         if(items > 0)
             setItems(items-1);
     }
+
+    const onAdd = (amount) =>{   
+        if(amount > 0){
+            alert("Se agregaron " + amount + "  productos al carrito");
+        }
+        else{
+            alert("Ingrese cantidad");
+        }   
+    } 
 
     return (
         <div className="container mt-3  container__counter">

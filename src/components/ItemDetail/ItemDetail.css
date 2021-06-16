@@ -1,0 +1,26 @@
+.img__item__detail{
+    width:70%;
+    height:400px;
+    margin:5%;
+    padding-top: 1%;
+}
+
+.title__item{
+    padding-left: 30% ;
+    padding-top: 4%;
+    font-size: 240%;
+    font-family: 'Odibee Sans', cursive;
+    letter-spacing: 0.1em;
+}
+
+.div__detalle_producto{
+    font-family: 'Odibee Sans', cursive;
+    font-size: 170%;
+    padding-top:4%;
+    letter-spacing: 0.05em;
+}
+
+.div__info_producto{
+    border-style: solid;
+    padding:4%;
+}
