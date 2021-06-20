@@ -2,15 +2,26 @@
     text-align: center;
     box-shadow: 0 2px 2px rgba(0,0,0,0.2);
     font-family: 'Odibee Sans', cursive;
+    letter-spacing: 0.1rem;
+    color: black !important;
+   
 }  
 
 .img__item{
     width:50%;
     height:200px;
-    margin-left:25%;
     padding-top: 2%;
 }
 
 .div__item{
     padding-top:12%;
+}
+
+.link{
+    color: rgb(77, 76, 76);
+    text-decoration: none !important;
+}
+
+.link:hover{
+    color: grey;
 }

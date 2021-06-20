@@ -2,12 +2,13 @@
 import './NavBar.css';
 import CartWidget from './CartWidget';
 import logo from '../../assets/img/logo.JPG';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () =>  {
   return (
     <div className="container d-flex">
         <nav className="navbar navbar-expand-lg navbar-light">
-            <a className="navbar-brand" href="#"><img className = "logo__nav" alt="logo" src={logo}></img></a>
+            <NavLink to={'/category/0'}><img className = "logo__nav" alt="logo" src={logo}></img></NavLink>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -15,21 +16,21 @@ const NavBar = () =>  {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto ul__nav">
                     <li className="nav-item active li__nav">
-                        <a className="nav-link" href="#">Inicio <span className="sr-only"></span></a>
+                        <NavLink activeClassName="selected" exact to={'/category/0'} className="nav-link">Inicio <span className="sr-only"></span></NavLink>
                     </li>
                     <li className="nav-item li__nav">
-                        <a className="nav-link" href="#">Nosotros</a>
+                        <NavLink activeClassName="selected" exact to={'/productDetail/1'} className="nav-link">Nosotros</NavLink>
                     </li>
                     <li className="nav-item dropdown li__nav">
-                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <NavLink  activeClassName="selected" exact to={'/category/0'}  className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Productos
-                        </a>
+                        </NavLink>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a className="dropdown-item" href="#">Papel</a>
-                            <a className="dropdown-item" href="#">Carton</a>
-                            <a className="dropdown-item" href="#">Plastico</a>
+                            <NavLink  activeClassName="selected" exact to={'/category/1'}  className="dropdown-item" >Papel</NavLink>
+                            <NavLink  activeClassName="selected" exact to={'/category/2'} className="dropdown-item" >Carton</NavLink>
+                            <NavLink  activeClassName="selected" exact to={'/category/3'}  className="dropdown-item" >Plastico</NavLink>
                             <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="#">Otros</a>
+                            <NavLink  activeClassName="selected" exact to={'/category/4'}  className="dropdown-item" >Otros</NavLink>
                         </div>
                     </li>
                 </ul>
