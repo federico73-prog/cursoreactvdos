@@ -31,8 +31,8 @@ const ItemList = () => {
         const getItems = (productos) =>{
                 return new Promise((resolve,reject) => {
                     setTimeout(() => {
-                    resolve(productos);
-                    setLoading(true);
+                        resolve(productos);
+                        setLoading(true);
                     }, 1500);
                 });
             
