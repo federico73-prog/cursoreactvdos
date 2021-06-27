@@ -30,11 +30,7 @@ const ItemDetail = ({name, value, stock, img, description}) => {
                                 <p><b>Stock</b>: {stock}</p>
                                 <p><b>Descripcion</b>: {description}</p>
                             </div>
-
                             {isClicked ? <button>Terminar Compra</button> : <Counter initial={0} stock = {stock} onAdd = {onAdd}/>}
-                                       
-                            
-
                         </div>  
                        
                     </div>
