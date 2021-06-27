@@ -1,10 +1,20 @@
-import React from 'react';
+import React, {  useState } from 'react';
 import './ItemDetail.css';
 import Counter from '../Counter/Counter';
 
 const ItemDetail = ({name, value, stock, img, description}) => {
+    
+    const [isClicked, setIsClicked] = useState(false);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const onAdd = (cantidadItemCarrito) =>{   
+        if(cantidadItemCarrito > 0){
+            setIsClicked(true);
+            alert("Se agregaron " + cantidadItemCarrito + "  productos al carrito");
+        }
+        else{
+            alert("Ingrese cantidad");
+        }   
+    } 
     
     return (
         <div>
@@ -20,11 +30,17 @@ const ItemDetail = ({name, value, stock, img, description}) => {
                                 <p><b>Stock</b>: {stock}</p>
                                 <p><b>Descripcion</b>: {description}</p>
                             </div>
-                            <Counter initial={0} stock = {stock}/>
+
+                            {isClicked ? <button>Terminar Compra</button> : <Counter initial={0} stock = {stock} onAdd = {onAdd}/>}
+                                       
+                            
+
                         </div>  
+                       
                     </div>
                 </div>
         </div>
+        
     );
 };
 
