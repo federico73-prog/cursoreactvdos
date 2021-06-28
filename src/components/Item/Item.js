@@ -5,21 +5,32 @@ import { Link } from 'react-router-dom';
 
 
 
-const Item = ({id,name,value,stock,img,description}) => {
+const Item = ({id,name,value,stock,img}) => {
+
+    const onAdd = (cantidadItemCarrito) =>{   
+        if(cantidadItemCarrito > 0){
+            alert("Se agregaron " + cantidadItemCarrito + "  productos al carrito");
+        }
+        else{
+            alert("Ingrese cantidad");
+        }   
+    } 
     // eslint-disable-next-line no-lone-blocks
      return (
 
         <div className="card card__item">
-                <Link className="link"  to = {`/productDetail/${id}/${name}/${value}/${stock}/${description}`} > 
+                <Link className="link"  to = {`/productDetail/${id}`} > 
                     <img className="img__item" src={img}/>
                     <div className="div__item">
-                        <p p__name><b>{name}</b></p>
-                        <p p__car>Precio: {value}</p>
-                        <p p__car>Stock: {stock}</p>
-                        <p p__car>Codigo: {id}</p>
+                        <p ><b>{name}</b></p>
+                        <p >Precio: {value}</p>
+                        <p >Stock: {stock}</p>
+                        <p >Codigo: {id}</p>
+                        
                     </div>
                 </Link>
-                <Counter initial={0} stock = {stock}  />
+                <Counter initial={0} stock = {stock} onAdd = {onAdd}/>
+               
         </div>
         );
    

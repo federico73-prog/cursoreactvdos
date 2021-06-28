@@ -20,7 +20,7 @@ function Main() {
                         <hr />
                         <ItemListContainer />
                     </Route>
-                    <Route exact path="/productDetail/:id/:name/:value/:stock/:description">
+                    <Route exact path="/productDetail/:id">
                         <ItemDetailContainer />
                     </Route>
                     <Route exact path="/Cart">

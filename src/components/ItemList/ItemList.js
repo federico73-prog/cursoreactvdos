@@ -17,6 +17,7 @@ const ItemList = () => {
     const [loading,setLoading] = useState(false);
     const { category } = useParams();
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    
     useEffect(  () => {
         const productList = [
             {name:'Papel Higiénico Higienol 30mts', value: 1, stock:20, img : img1,category: '1',description:"Papel Higiénico Higienol 30mts X4 unidades"},

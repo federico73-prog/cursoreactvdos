@@ -32,7 +32,7 @@ const Counter = ({initial, stock, onAdd}) => {
                 <i> <button className="btn__counter"><ion-icon name="add-circle-outline" onClick= {addcantidadItem}></ion-icon></button></i>
             </div>
             <div className=" container d-flex align-cantidadItem-center justify-content-center  mb-1 containter__counter__secondary ">
-                <button className="btn btn-secondary btn__agregar" onClick = {() => onAdd(cantidadItem)}>Agregar</button>
+                <button className="btn btn-secondary btn__agregar" onClick = { () => onAdd(cantidadItem)}>Agregar</button>
             </div>
         </div>
     );

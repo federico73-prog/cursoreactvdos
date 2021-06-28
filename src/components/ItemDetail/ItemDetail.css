@@ -24,3 +24,13 @@
     border-style: solid;
     padding:4%;
 }
+
+
+.btn__terminarCompra{
+    font-size: 100%;
+    color: rgb(245, 242, 238);
+    letter-spacing: 0.1em;
+    background-color: rgb(58, 97, 206);
+    margin:3%;
+    
+}

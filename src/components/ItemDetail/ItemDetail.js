@@ -1,8 +1,9 @@
 import React, {  useState } from 'react';
 import './ItemDetail.css';
 import Counter from '../Counter/Counter';
+import { Link } from 'react-router-dom';
 
-const ItemDetail = ({name, value, stock, img, description}) => {
+const ItemDetail = ({name, value, stock, description,img}) => {
     
     const [isClicked, setIsClicked] = useState(false);
 
@@ -15,7 +16,7 @@ const ItemDetail = ({name, value, stock, img, description}) => {
             alert("Ingrese cantidad");
         }   
     } 
-    
+    console.log(name);
     return (
         <div>
                 <p className="title__item"> {name}</p>
@@ -29,8 +30,9 @@ const ItemDetail = ({name, value, stock, img, description}) => {
                                 <p><b>Precio </b>: $ {value},00</p>
                                 <p><b>Stock</b>: {stock}</p>
                                 <p><b>Descripcion</b>: {description}</p>
+                                {isClicked && <Link to = {`/Cart`}><button  className="btn__terminarCompra btn btn-secondary">Terminar Compra</button></Link>} 
+                                {!isClicked && <Counter initial={0} stock = {stock} onAdd = {onAdd}/>}
                             </div>
-                            {isClicked ? <button>Terminar Compra</button> : <Counter initial={0} stock = {stock} onAdd = {onAdd}/>}
                         </div>  
                        
                     </div>
