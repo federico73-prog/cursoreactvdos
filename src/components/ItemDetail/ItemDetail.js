@@ -1,16 +1,19 @@
-import React, {  useState } from 'react';
+import React, {  useState , useContext } from 'react';
 import './ItemDetail.css';
 import Counter from '../Counter/Counter';
 import { Link } from 'react-router-dom';
+import CartContext from '../../context/CartContext';
 
-const ItemDetail = ({name, value, stock, description,img}) => {
+const ItemDetail = ({id, name, value, stock, description,img}) => {
     
     const [isClicked, setIsClicked] = useState(false);
+    const { addToCache } = useContext(CartContext);
 
     const onAdd = (cantidadItemCarrito) =>{   
         if(cantidadItemCarrito > 0){
             setIsClicked(true);
             alert("Se agregaron " + cantidadItemCarrito + "  productos al carrito");
+            addToCache({ id:{id} , name: {name} });
         }
         else{
             alert("Ingrese cantidad");

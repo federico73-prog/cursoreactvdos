@@ -5,6 +5,8 @@ import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import Cart from '../Cart/Cart';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import CacheProvider from '../../providers/CacheProvider';
+
 
 function Main() {
   return (
@@ -12,22 +14,25 @@ function Main() {
             <BrowserRouter>
             <NavBar/>
                 <Switch>
-                    <Route exact path="/">
-                        <hr />
-                        <ItemListContainer />
-                    </Route>
-                    <Route exact path="/category/:category">
-                        <hr />
-                        <ItemListContainer />
-                    </Route>
-                    <Route exact path="/productDetail/:id">
-                        <ItemDetailContainer />
-                    </Route>
-                    <Route exact path="/Cart">
-                        <Cart />
-                    </Route>
+                    <CacheProvider>
+                        <Route exact path="/">
+                            <hr />
+                            <ItemListContainer />
+                        </Route>
+                        <Route exact path="/category/:category">
+                            <hr />
+                            <ItemListContainer />
+                        </Route>
+                        <Route exact path="/productDetail/:id">
+                            <ItemDetailContainer />
+                        </Route>
+                        <Route exact path="/Cart">
+                            <Cart />
+                        </Route>
+                    </CacheProvider>
                 </Switch>
             </BrowserRouter>
+            
           </div>
     ); 
 }

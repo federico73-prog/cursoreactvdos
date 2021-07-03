@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Counter from '../Counter/Counter';
 import './Item.css';
 import { Link } from 'react-router-dom';
-
-
 
 const Item = ({id,name,value,stock,img}) => {
 
     const onAdd = (cantidadItemCarrito) =>{   
         if(cantidadItemCarrito > 0){
             alert("Se agregaron " + cantidadItemCarrito + "  productos al carrito");
+
         }
         else{
             alert("Ingrese cantidad");

@@ -58,7 +58,7 @@ const ItemDetailContainer = () => {
                     if(i == {id}.id){
                         return (
                         <div className="container-fluid container__IDT" key={i}>{
-                                <ItemDetail  name={element.name} value = {element.value} stock = {element.stock}  description = {element.description} img={element.img}/>
+                                <ItemDetail  id = {i} name={element.name} value = {element.value} stock = {element.stock}  description = {element.description} img={element.img}/>
                             }
                         </div>);
                     }
