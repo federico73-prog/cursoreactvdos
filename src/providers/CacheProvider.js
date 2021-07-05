@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import CartContext from '../context/CartContext';
 
 export default function CacheProvider({ defaultValue = [], children }) {
@@ -22,7 +22,10 @@ export default function CacheProvider({ defaultValue = [], children }) {
       return;
     }
     setCache([...cache, obj]);
-    console.log('Elemento agregado!' + obj.name);
+    console.log(cache);
+    console.log(obj.name );
+    console.log(obj.id);
+    console.log(obj.cantidadItemCarrito);
   }
   return (
     <CartContext.Provider

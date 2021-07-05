@@ -13,7 +13,7 @@ const ItemDetail = ({id, name, value, stock, description,img}) => {
         if(cantidadItemCarrito > 0){
             setIsClicked(true);
             alert("Se agregaron " + cantidadItemCarrito + "  productos al carrito");
-            addToCache({ id:{id} , name: {name} });
+            addToCache({ id: id , name: name , value: value, cantidadItemCarrito});
         }
         else{
             alert("Ingrese cantidad");
