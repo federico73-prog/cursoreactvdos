@@ -10,14 +10,30 @@
         padding: 20px;
     }
     thead{
-        background-color: #246355;
-        color:white;
-        border-bottom: solid 5px #0F362D;
+        background-color: #d87a0f;
+        color:black;
+        border-bottom: solid 5px #d87a0f;
     }
     tr:nth-child(even){
         background-color: #ddd;
     }
     tr:hover td{
-        background-color: #369681;
+        background-color: rgb(255, 166, 0);
         color:white;
     }
+
+    .h3__cart{
+        margin: 4%;
+        font-family: 'Odibee Sans', cursive;
+        letter-spacing: 0.2rem;
+        font-size:xx-large;
+    }
+
+    .btn__volver{
+        font-size: 100%;
+        letter-spacing: 0.1em;
+        background-color: #d87a0f;
+        color: white;
+        
+    }
+    

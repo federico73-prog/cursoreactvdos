@@ -22,14 +22,16 @@ export default function CacheProvider({ defaultValue = [], children }) {
       return;
     }
     setCache([...cache, obj]);
-    console.log(cache);
-    console.log(obj.name );
-    console.log(obj.id);
-    console.log(obj.cantidadItemCarrito);
   }
+
+  function removeToCache(id) {
+    cache.filter(obj => obj.id !== id)
+    setCache([...cache]);
+  }
+
   return (
     <CartContext.Provider
-      value={{ cache, addToCache, isInCache, cacheSize: cache.length }}
+      value={{ cache, addToCache,removeToCache, isInCache, cacheSize: cache.length }}
     >
       {children}
     </CartContext.Provider>
