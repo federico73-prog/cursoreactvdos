@@ -3,6 +3,8 @@ import CartContext from '../context/CartContext';
 
 export default function CacheProvider({ defaultValue = [], children }) {
   const [cache, setCache] = useState(defaultValue);
+  const [finalPrice, setFinalPrice] = useState(0);
+  const [cantItemTotal, setCantItemTotal] = useState(0);
 
   function getFromCache(id) {
     return cache.find(x => x.id === id);
@@ -18,20 +20,31 @@ export default function CacheProvider({ defaultValue = [], children }) {
 
   function addToCache(obj) {
     if (isInCache(obj)) {
+      
       console.log('Element already in cache store.');
       return;
     }
+    setFinalPrice(finalPrice +(obj.value * obj.cantidadItemCarrito) );
+    setCantItemTotal(cantItemTotal + obj.cantidadItemCarrito );
     setCache([...cache, obj]);
   }
 
-  function removeToCache(id) {
-    cache.filter(obj => obj.id !== id)
+  function removeToCache(obj) {
+    cache.map((element,i) =>{
+      if(element.id == obj.id){
+        console.log(i + "cartnumber")
+        cache.splice(i,1);
+      }
+    });
+    setFinalPrice(finalPrice -(obj.value * obj.cantidadItemCarrito) );
+    setCantItemTotal(cantItemTotal - obj.cantidadItemCarrito );
     setCache([...cache]);
   }
 
+
   return (
     <CartContext.Provider
-      value={{ cache, addToCache,removeToCache, isInCache, cacheSize: cache.length }}
+      value={{ cache,finalPrice,cantItemTotal, addToCache,removeToCache, isInCache, cacheSize: cache.length }}
     >
       {children}
     </CartContext.Provider>

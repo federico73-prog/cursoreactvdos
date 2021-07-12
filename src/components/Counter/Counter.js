@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Counter.css';
-import { Link } from 'react-router-dom';
 
 const Counter = ({initial, stock, onAdd}) => {
    

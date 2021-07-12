@@ -12,9 +12,9 @@ function Main() {
   return (
           <div className="container">
             <BrowserRouter>
-            <NavBar/>
-                <Switch>
-                    <CacheProvider>
+                <CacheProvider>
+                <NavBar/>
+                    <Switch>
                         <Route exact path="/">
                             <hr />
                             <ItemListContainer />
@@ -29,8 +29,8 @@ function Main() {
                         <Route exact path="/Cart">
                             <Cart />
                         </Route>
-                    </CacheProvider>
-                </Switch>
+                    </Switch>
+                </CacheProvider>
             </BrowserRouter>
             
           </div>

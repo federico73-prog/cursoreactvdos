@@ -3,15 +3,17 @@ import CartContext from '../../context/CartContext';
 import './Cart.css';
 import { Link } from 'react-router-dom';
 const Cart = () => {
-    const {  cache,removeToCache,cacheSize } = useContext(CartContext);
+    const {  cache,removeToCache,cacheSize,finalPrice } = useContext(CartContext);
     console.log(cache);
     console.log(cacheSize);
+
     return (
         <div className = "container">
             {cacheSize > 0 ? (
-                <table className= "tabla__compra" >
-                    <thead><tr><th>Numero</th> <th>Producto</th><th> Precio </th><th> Cantidad</th><th> Precio final</th> <th> </th></tr></thead>
-                    {cache.map((element,i) =>{
+                <div>
+                    <table className= "tabla__compra" >
+                        <tbody><th>Numero</th><th>Producto</th><th> Precio </th><th> Cantidad</th><th> Precio final</th><th></th></tbody>
+                        {cache.map((element,i) =>{
                         return(
                                 
                                 <tr key={i}> 
@@ -20,11 +22,13 @@ const Cart = () => {
                                         <td> {element.value} </td> 
                                         <td> {element.cantidadItemCarrito} </td> 
                                         <td> {element.cantidadItemCarrito * element.value}</td>
-                                        <td> <button onClick = { () => removeToCache({id: element.id})}>Eliminar</button ></td>
+                                        <td> <button onClick = { () => removeToCache(element)}>Eliminar</button ></td>
                                 </tr>
                             )
-                    })}
-                </table>
+                        })}
+                    </table>
+                    <h3>Precio final: {finalPrice}</h3>
+                </div>
                 ):(
                     <div className="container ">
                         <div className="col-auto text-center">

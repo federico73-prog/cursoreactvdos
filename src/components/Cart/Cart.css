@@ -9,7 +9,7 @@
     th, td{
         padding: 20px;
     }
-    thead{
+    tbody{
         background-color: #d87a0f;
         color:black;
         border-bottom: solid 5px #d87a0f;

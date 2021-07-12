@@ -7,13 +7,16 @@ import CartContext from '../../context/CartContext';
 const ItemDetail = ({id, name, value, stock, description,img}) => {
     
     const [isClicked, setIsClicked] = useState(false);
-    const { addToCache } = useContext(CartContext);
+    const { addToCache  } = useContext(CartContext);
+
+   
 
     const onAdd = (cantidadItemCarrito) =>{   
         if(cantidadItemCarrito > 0){
+            //refreshQuantity(cantidadItemCarrito);
             setIsClicked(true);
             alert("Se agregaron " + cantidadItemCarrito + "  productos al carrito");
-            addToCache({ id: id , name: name , value: value, cantidadItemCarrito});
+            addToCache({ id: id , name: name , value: value, cantidadItemCarrito: cantidadItemCarrito});
         }
         else{
             alert("Ingrese cantidad");
