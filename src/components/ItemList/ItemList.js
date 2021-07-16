@@ -10,48 +10,36 @@ import img6 from '../../assets/img/img6.JPG';
 import img7 from '../../assets/img/img7.JPG';
 import './ItemList.css';
 import { useParams } from 'react-router-dom';
+import { getFirestore } from '../../factory/firebase.js';
 
 
 const ItemList = () => {
-    const [localItems, setLocalItems] = useState([]);
+    const [items, setItems] = useState([]);
     const [loading,setLoading] = useState(false);
     const { category } = useParams();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     
+    
     useEffect(  () => {
-        const productList = [
-            {name:'Papel Higiénico Higienol 30mts', value: 1, stock:20, img : img1,category: '1',description:"Papel Higiénico Higienol 30mts X4 unidades"},
-            {name:'Papel Higiénico Higienol 50mts', value: 2, stock:10, img: img2, category: '1',description:"Papel Higiénico Higienol 50mts X4 unidades"},
-            {name:'Papel Higiénico Elegante 80mts', value: 3, stock:5, img: img6, category: '1',description:"Papel Higiénico Elegante 80mts X4 unidades"},
-            {name:'Papel Higiénico Elegante 50mts', value: 3, stock:5, img: img5,category: '1',description:"Papel Higiénico Elegante 50mts X24 unidades"},
-            {name:'Papel Film X50mts', value: 3, stock:5, img: img7, category: '4',description:"Papel film X50mts"},
-            {name:'Papel corrugado X50mts', value: 3, stock:5, img: img3,category: '2',description:"Papel corrugado X50mts"},
-        ];
+        const db = getFirestore();
+        const itemCollection = db.collection('items');
 
-        
-        const getItems = (productos) =>{
-                return new Promise((resolve,reject) => {
-                    setTimeout(() => {
-                        resolve(productos);
-                        setLoading(true);
-                    }, 1500);
-                });
-            
-        }
-        
-        getItems(productList)
-                .then(result=>setLocalItems(result))
+        itemCollection.get().then(querySnapshot => {
+            if (querySnapshot.size === 0) {
+              console.log('No results');
+              setLoading(false);
+            }
+            setItems(querySnapshot.docs.map(doc => doc.data()));
+            setLoading(false);
+        });
             
     },[]);
 
-    if(loading===false){
-        return <Spinner />
-    }
-    else{
+
         return(
             <div className="row">
-                
-                {localItems.map((element,i) =>{
+                {loading && <Spinner />}
+                {items.map((element,i) =>{
                     if(element.category === {category}.category){
                         return (
                             <div className="col-4 row__itemlist" key={i}>
@@ -69,7 +57,6 @@ const ItemList = () => {
             
             </div>
         );
-    }
 };
 
 
