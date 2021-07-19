@@ -1,4 +1,4 @@
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 var app = firebase.initializeApp({
@@ -6,7 +6,7 @@ var app = firebase.initializeApp({
     authDomain: "federico-ecommerce.firebaseapp.com",
     projectId: "federico-ecommerce",
     storageBucket: "federico-ecommerce.appspot.com",
-    messagingSenderId: "678366520915",
+    messagingSenderId: "678366520915", 
     appId: "1:678366520915:web:65f79cd58b9499bff208a6",
     measurementId: "G-PCKKX2GKP9"
 });
