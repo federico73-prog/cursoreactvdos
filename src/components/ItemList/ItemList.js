@@ -2,12 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
 import Spinner from '../Spinner/Spinner';
-import img1 from '../../assets/img/img1.jpg';
-import img2 from '../../assets/img/img2.JPG';
-import img3 from '../../assets/img/img3.JPG';
-import img5 from '../../assets/img/img5.JPG';
-import img6 from '../../assets/img/img6.JPG';
-import img7 from '../../assets/img/img7.JPG';
 import './ItemList.css';
 import { useParams } from 'react-router-dom';
 import { getFirestore } from '../../factory/firebase.js';
