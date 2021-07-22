@@ -13,11 +13,11 @@ const ItemDetailContainer = () => {
     const {id} = useParams();
 
     useEffect(  () => {
-        console.log(id);
+        //console.log(id);
         const db = getFirestore();
         const itemCollection = db.collection('items');
         const item = itemCollection.doc(id);
-        console.log(item)
+
         item.get().then(doc => {
             
             if (!doc.exists) {

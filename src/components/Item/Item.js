@@ -4,6 +4,7 @@ import './Item.css';
 import { Link } from 'react-router-dom';
 
 const Item = ({id,name,value,stock,img}) => {
+    console.log(id)
 
     const onAdd = (cantidadItemCarrito) =>{   
         if(cantidadItemCarrito > 0){
@@ -22,7 +23,7 @@ const Item = ({id,name,value,stock,img}) => {
                     <img className="img__item" src={img}/>
                     <div className="div__item">
                         <p ><b>{name}</b></p>
-                        <p >Precio: {value}</p>
+                        <p className="p__precio"> $ {value},00</p>
                         <p >Stock: {stock}</p>
                         <p >Codigo: {id}</p>
                         

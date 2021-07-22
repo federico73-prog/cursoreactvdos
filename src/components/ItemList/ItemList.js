@@ -25,8 +25,9 @@ const ItemList = () => {
             }
             setItems(querySnapshot.docs.map(doc => doc.data()));
             setLoading(false);
+            console.log(items)
+
         });
-            
     },[]);
 
 

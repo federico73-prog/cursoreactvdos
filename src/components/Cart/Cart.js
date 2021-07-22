@@ -1,11 +1,39 @@
 import React, { useContext, useState } from 'react';
 import CartContext from '../../context/CartContext';
 import './Cart.css';
+import Spinner from '../Spinner/Spinner';
 import { Link } from 'react-router-dom';
+import { getFirestore } from '../../factory/firebase.js';
+import firebase from 'firebase/app';
+
 const Cart = () => {
+    const [loading,setLoading] = useState(false);
     const {  cache,removeToCache,cacheSize,finalPrice } = useContext(CartContext);
-    console.log(cache);
-    console.log(cacheSize);
+    
+    
+    const saveOrder = () =>{
+        setLoading(true);
+        const db = getFirestore();
+        const order = db.collection('orders');
+        const newOrder = {
+            buyer:{
+                email: "juan_diaz@gmail.com",
+                name: "juan diaz",
+                phone: "55210111"
+            },
+            date: firebase.firestore.Timestamp.fromDate(new Date()),
+            total: finalPrice
+
+        }
+
+        order.add(newOrder).then(({id})=>{
+            setLoading(false);
+            console.log(`${id}`)
+
+        }).catch((error)=>{
+            console.log(error)
+        })
+    } 
 
     return (
         <div className = "container">
@@ -27,7 +55,11 @@ const Cart = () => {
                             )
                         })}
                     </table>
-                    <h3>Precio final: {finalPrice}</h3>
+                    <div className="container d-flex footer__cart">
+                        <h3 className="h3_precio_final">Precio Final: $ {finalPrice},00</h3>
+                        <button className="button_vaciar_carrito"> Vaciar Carrito </button>
+                        <button onClick={()=> saveOrder()} className="button_finalizar_compra"> Finalizar Compra </button>
+                    </div>
                 </div>
                 ):(
                     <div className="container ">

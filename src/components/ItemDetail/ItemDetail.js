@@ -22,7 +22,6 @@ const ItemDetail = ({id, name, value, stock, description,img}) => {
             alert("Ingrese cantidad");
         }   
     } 
-    console.log(name);
     return (
         <div>
                 <p className="title__item"> {name}</p>

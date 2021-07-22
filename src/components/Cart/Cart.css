@@ -36,4 +36,20 @@
         color: white;
         
     }
-    
+
+    .footer__cart{
+        padding-top:1%;
+    }
+    .h3_precio_final{
+        width: 30%;
+        font-size: 250%;
+        font-family: 'Odibee Sans', cursive;
+    }
+
+    .button_vaciar_carrito{
+        
+    }
+
+    .button_finalizar_compra{
+        margin-left: 40%;
+    }
