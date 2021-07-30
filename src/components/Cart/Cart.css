@@ -9,15 +9,17 @@
     th, td{
         padding: 20px;
     }
-    tbody{
-        background-color: #d87a0f;
-        color:black;
-        border-bottom: solid 5px #d87a0f;
+    thead{
+        background-color: rgb(255, 166, 0); ;
     }
-    tr:nth-child(even){
+    tbody{
+        background-color: #cac8c6;
+        color:black;
+    }
+    tbody:nth-child(even){
         background-color: #ddd;
     }
-    tr:hover td{
+    tbody:hover td{
         background-color: rgb(255, 166, 0);
         color:white;
     }
@@ -38,18 +40,48 @@
     }
 
     .footer__cart{
-        padding-top:1%;
+        padding-top:3%;
     }
     .h3_precio_final{
-        width: 30%;
         font-size: 250%;
         font-family: 'Odibee Sans', cursive;
+        letter-spacing: 0.3rem;
+    }
+
+    .container__precio__final{
+        background-color: rgb(231, 230, 226);
+        border-radius: 4%;
+        border-style: solid;
+        width: 35%;
+        padding: 5%;
     }
 
     .button_vaciar_carrito{
-        
+        background-color: rgb(119, 119, 119);
+        font-family: 'Odibee Sans', cursive;
+        letter-spacing: 0.01rem;
+        font-size: 25px;
     }
 
     .button_finalizar_compra{
-        margin-left: 40%;
+        background-color: #d87a0f;
+        font-family: 'Odibee Sans', cursive;
+        font-size: 25px;
+        letter-spacing: 0.01rem;
+        margin:4%;
+    }
+
+    
+
+    .btn__eliminar{
+        background-color: rgb(218, 30, 30);
+    }
+    .div__etiqueta{
+        margin:3%;
+    }
+    .h1__etiqueta{
+        font-family: 'Odibee Sans', cursive;
+        font-size: 65px;
+        letter-spacing: 0.3vh;
+        margin-left: 25%;
     }

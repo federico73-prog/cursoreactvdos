@@ -4,9 +4,9 @@ import NavBar from '../NavBar/NavBar';
 import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import Cart from '../Cart/Cart';
+import FinalOrder from '../FinalOrder/FinalOrder';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import CacheProvider from '../../providers/CacheProvider';
-
 
 function Main() {
   return (
@@ -27,12 +27,15 @@ function Main() {
                             <ItemDetailContainer />
                         </Route>
                         <Route exact path="/Cart">
+                            <hr />
                             <Cart />
+                        </Route>
+                        <Route exact path="/FinalOrder">
+                            <FinalOrder />
                         </Route>
                     </Switch>
                 </CacheProvider>
             </BrowserRouter>
-            
           </div>
     ); 
 }

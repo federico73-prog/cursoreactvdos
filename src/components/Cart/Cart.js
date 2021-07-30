@@ -1,66 +1,52 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import CartContext from '../../context/CartContext';
 import './Cart.css';
-import Spinner from '../Spinner/Spinner';
 import { Link } from 'react-router-dom';
-import { getFirestore } from '../../factory/firebase.js';
-import firebase from 'firebase/app';
 
 const Cart = () => {
-    const [loading,setLoading] = useState(false);
-    const {  cache,removeToCache,cacheSize,finalPrice } = useContext(CartContext);
-    
-    
-    const saveOrder = () =>{
-        setLoading(true);
-        const db = getFirestore();
-        const order = db.collection('orders');
-        const newOrder = {
-            buyer:{
-                email: "juan_diaz@gmail.com",
-                name: "juan diaz",
-                phone: "55210111"
-            },
-            date: firebase.firestore.Timestamp.fromDate(new Date()),
-            total: finalPrice
 
-        }
-
-        order.add(newOrder).then(({id})=>{
-            setLoading(false);
-            console.log(`${id}`)
-
-        }).catch((error)=>{
-            console.log(error)
-        })
-    } 
+    const { clear,cache,removeToCache,cacheSize,finalPrice } = useContext(CartContext);
 
     return (
         <div className = "container">
             {cacheSize > 0 ? (
                 <div>
+                    
+                    <div className="container div__etiqueta">
+                        <h1 className="h1__etiqueta">Detalle de su carrito:</h1>
+                    </div>
+
                     <table className= "tabla__compra" >
-                        <tbody><th>Numero</th><th>Producto</th><th> Precio </th><th> Cantidad</th><th> Precio final</th><th></th></tbody>
+                        <thead><tr><th>Numero</th><th>Producto</th><th> Precio Unitario </th><th> Cantidad</th><th> Precio Final</th><th></th></tr></thead>
                         {cache.map((element,i) =>{
                         return(
-                                
-                                <tr key={i}> 
+                                <tbody key={i}>
+                                <tr > 
                                         <td> {i+1} </td> 
                                         <td> {element.name} </td> 
-                                        <td> {element.value} </td> 
+                                        <td> $ {element.value},00 </td> 
                                         <td> {element.cantidadItemCarrito} </td> 
-                                        <td> {element.cantidadItemCarrito * element.value}</td>
-                                        <td> <button onClick = { () => removeToCache(element)}>Eliminar</button ></td>
+                                        <td> $ {element.cantidadItemCarrito * element.value},00</td>
+                                        <td> <button className="btn btn-secondary btn__eliminar" onClick = { () => removeToCache(element)}>X</button ></td>
                                 </tr>
+                                </tbody>
                             )
                         })}
                     </table>
-                    <div className="container d-flex footer__cart">
-                        <h3 className="h3_precio_final">Precio Final: $ {finalPrice},00</h3>
-                        <button className="button_vaciar_carrito"> Vaciar Carrito </button>
-                        <button onClick={()=> saveOrder()} className="button_finalizar_compra"> Finalizar Compra </button>
+
+                    <div className="container footer__cart">
+                        <div className="col-auto text-center">
+                                <div className="container container__precio__final ">
+                                    <h3 className="h3_precio_final"><b>Precio Final: </b></h3>
+                                    <h3 className="h3_precio_final">${finalPrice},00</h3>
+                                    <div className="container__buttons">
+                                    <button onClick = { () => clear()} className="btn btn-secondary button_vaciar_carrito"> Vaciar Carrito </button>
+                                    <Link to={`/FinalOrder`}><button  className="btn btn-secondary button_finalizar_compra"> Comprar </button></Link>
+                                 </div>
+                                 </div>
+                        </div>
                     </div>
-                </div>
+                    </div>
                 ):(
                     <div className="container ">
                         <div className="col-auto text-center">
@@ -68,7 +54,6 @@ const Cart = () => {
                             <Link to={`/`}><button className="btn btn-secondary btn__volver">Volver al catalogo</button></Link>
                         </div>
                     </div>
-                
                 )
             }
          </div>

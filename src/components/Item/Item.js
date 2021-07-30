@@ -1,15 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext,useState } from 'react';
 import Counter from '../Counter/Counter';
 import './Item.css';
 import { Link } from 'react-router-dom';
+import CartContext from '../../context/CartContext';
+import Swal from 'sweetalert';
 
 const Item = ({id,name,value,stock,img}) => {
-    console.log(id)
+    
+    const { isInCache,addToCache,cache  } = useContext(CartContext);
 
     const onAdd = (cantidadItemCarrito) =>{   
         if(cantidadItemCarrito > 0){
-            alert("Se agregaron " +  cantidadItemCarrito + "  productos al carrito");
-
+            Swal({
+                title: `Agregaste ${cantidadItemCarrito}  ${name} al carrito ` ,
+                text: `Su valor es: $ ${value},00`,
+                toast: false,
+                position: 'top-left',
+                background: 'black',
+                timer: 4000,
+                color: "white",
+                icon: 'success',
+                button: 'Aceptar'
+            });
+            if(isInCache({id})){
+                cache.map((element) => {
+                    if(element.id == id){
+                        element.cantidadItemCarrito=element.cantidadItemCarrito + cantidadItemCarrito;
+                    }
+                })
+            }
+            addToCache({ id: id , name: name , value: value, cantidadItemCarrito: cantidadItemCarrito});
         }
         else{
             alert("Ingrese cantidad");
@@ -26,14 +46,11 @@ const Item = ({id,name,value,stock,img}) => {
                         <p className="p__precio"> $ {value},00</p>
                         <p >Stock: {stock}</p>
                         <p >Codigo: {id}</p>
-                        
                     </div>
                 </Link>
-                <Counter initial={0} stock = {stock} onAdd = {onAdd}/>
-               
+                <Counter initial={1} stock = {stock} onAdd = {onAdd}/>
         </div>
         );
-   
 }
 
 export default Item;

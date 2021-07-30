@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import './Counter.css';
 
 const Counter = ({initial, stock, onAdd}) => {
-   
 
     const [cantidadItem, setcantidadItem] = useState(initial);
     
-
     const addcantidadItem  = () => {
         if(cantidadItem < stock){
+            
             setcantidadItem(cantidadItem+1);
         }
         else{
@@ -20,8 +19,6 @@ const Counter = ({initial, stock, onAdd}) => {
         if(cantidadItem > 0)
             setcantidadItem(cantidadItem-1);
     }
-
-    
 
     return (
         <div className="container mt-3  container__counter">

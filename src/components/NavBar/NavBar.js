@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = () =>  {
   return (
-    <div className="container d-flex">
+    
         <nav className="navbar navbar-expand-lg navbar-light">
             <NavLink to={'/category/0'}><img className = "logo__nav" alt="logo" src={logo}></img></NavLink>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,11 +35,9 @@ const NavBar = () =>  {
                     </li>
                 </ul>
             </div>
-
             <CartWidget />
-            
         </nav>
-    </div>  
+       
     ); 
 }
 

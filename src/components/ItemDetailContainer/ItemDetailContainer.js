@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import './ItemDetailContainer.css';
@@ -13,13 +11,11 @@ const ItemDetailContainer = () => {
     const {id} = useParams();
 
     useEffect(  () => {
-        //console.log(id);
         const db = getFirestore();
         const itemCollection = db.collection('items');
         const item = itemCollection.doc(id);
 
         item.get().then(doc => {
-            
             if (!doc.exists) {
               console.log('Item no encontrado');
               setLoading(true);
@@ -36,22 +32,21 @@ const ItemDetailContainer = () => {
           });
     },[])
 
-    
     if(loading===false){
         return <Spinner />;
     }
     else{
         return (
             <div className="container">   
-            {items.map(element => {
-                return (
-                    <div className="container-fluid container__IDT">
-                        <ItemDetail  id = {element.id} name={element.name} value = {element.value} stock = {element.stock}  description = {element.description} img={element.img}/>
-                    </div>);
-            })}
-                </div>
+                {items.map((element,i) => {
+                    return (
+                        <div key={i} className="container-fluid container__IDT">
+                            <ItemDetail  id = {element.id} name={element.name} value = {element.value} stock = {element.stock}  description = {element.description} img={element.img}/>
+                        </div>);
+                })}
+            </div>
         );
     }
-};
+}
 
 export default ItemDetailContainer;

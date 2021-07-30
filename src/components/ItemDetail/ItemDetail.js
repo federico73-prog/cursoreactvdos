@@ -3,19 +3,36 @@ import './ItemDetail.css';
 import Counter from '../Counter/Counter';
 import { Link } from 'react-router-dom';
 import CartContext from '../../context/CartContext';
+import Swal from 'sweetalert';
 
 const ItemDetail = ({id, name, value, stock, description,img}) => {
     
     const [isClicked, setIsClicked] = useState(false);
-    const { addToCache  } = useContext(CartContext);
-
-   
+    const { addToCache, isInCache,cache  } = useContext(CartContext);
 
     const onAdd = (cantidadItemCarrito) =>{   
         if(cantidadItemCarrito > 0){
-            //refreshQuantity(cantidadItemCarrito);
             setIsClicked(true);
-            alert("Se agregaron " + cantidadItemCarrito + "  productos al carrito");
+            Swal({
+                title: `Agregaste "${name}" al carrito`,
+                text: `Su valor es: $ ${value},00`,
+                toast: true,
+                position: 'botom-end',
+                timer: 4000,
+                timerProgressBar: true,
+                background: "#56df5d",
+                color: "white",
+                icon: 'success'
+            });
+            if(isInCache({id})){
+                cache.map((element) => {
+                    if(element.id == id){
+                        element.cantidadItemCarrito=element.cantidadItemCarrito + cantidadItemCarrito;
+                        console.log(cache)
+                    }
+
+                })
+            }
             addToCache({ id: id , name: name , value: value, cantidadItemCarrito: cantidadItemCarrito});
         }
         else{
@@ -36,10 +53,9 @@ const ItemDetail = ({id, name, value, stock, description,img}) => {
                                 <p><b>Stock</b>: {stock}</p>
                                 <p><b>Descripcion</b>: {description}</p>
                                 {isClicked && <Link to = {`/Cart`}><button  className="btn__terminarCompra btn btn-secondary">Terminar Compra</button></Link>} 
-                                {!isClicked && <Counter initial={0} stock = {stock} onAdd = {onAdd}/>}
+                                {!isClicked && <Counter initial={1} stock = {stock} onAdd = {onAdd}/>}
                             </div>
                         </div>  
-                       
                     </div>
                 </div>
         </div>

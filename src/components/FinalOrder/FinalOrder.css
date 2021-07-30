@@ -1,0 +1,17 @@
+
+
+.p__order{
+    margin-left:25%;
+    font-family: 'Odibee Sans', cursive;
+    font-size: 45px;
+    letter-spacing: 0.3vh;
+}
+
+.button__order{
+    margin-left:40%;
+    margin-top:2%;
+    font-family: 'Odibee Sans', cursive;
+    font-size: 45px;
+    letter-spacing: 0.3vh;
+    background-color: rgb(180, 112, 24);
+}
