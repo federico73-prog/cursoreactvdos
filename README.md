@@ -72,4 +72,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Capturas:
 
-![Animation](https://user-images.githubusercontent.com/77419043/122714726-283fb080-d23e-11eb-83f5-b519810bd905.gif)
+![Animation4](https://user-images.githubusercontent.com/77419043/127607989-a3bca758-4312-46b9-b72c-db1231149ca3.gif)
+
